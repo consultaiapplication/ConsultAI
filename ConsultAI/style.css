@@ -1,0 +1,567 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+	--primary-color: rgb(68, 99, 238);
+	--dark-color: #212529;
+	--gray-color: #6c757d;
+	--success-color: #4bb543;
+	--error-color: #ff3333;
+	--border-radius: 8px;
+	--box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	--transition: all 0.3s ease;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Josefin Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	-webkit-tap-highlight-color: transparent;
+}
+
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+body {
+	background-image: url('https://img.freepik.com/premium-photo/artificial-intelligence-machine-learning-digital-human-face-dispersion-dissolve-disintegration_628331-605.jpg?w=740');
+	background-size: cover;
+	background-position: center;
+	backdrop-filter: blur(5px);
+	color: var(--dark-color);
+	min-height: 100vh;
+	padding: 1.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.view {
+	display: none;
+	width: 100%;
+	max-width: 500px;
+	background: white;
+	padding: 2.5ren;
+	box-shadow: var(--box-shadow);
+	animation: fadeIn 0.5s ease;
+}
+
+.view.active {
+	display: block;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+h1,
+h2 {
+	color: var(--primary-color);
+	margin-bottom: 1.5rem;
+	font-weight: 700;
+}
+
+h1 {
+	font-size: 2rem;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+p {
+	color: var(--gray-color);
+	margin-bottom: 1.5rem;
+	line-height: 1.5;
+}
+
+a {
+	color: var(--primary-color);
+	text-decoration: none;
+	font-weight: 600;
+	transition: var(--transition);
+}
+
+a:hover {
+	color: var(--primary-dark);
+	text-decoration: underline;
+}
+
+input[type='email'],
+input[type='password'],
+input[type='text'] {
+	width: 100%;
+	padding: 0.8rem 1rem;
+	margin-bottom: 1rem;
+	border: 1px solid #bac8ff;
+	background: white;
+	color: var(--dark-color);
+	font-size: 1rem;
+	transition: var(--transition);
+}
+
+input:focus {
+	outline: none;
+	border-color: var(--primary-color);
+}
+
+button {
+	padding: 0.8rem 1.5rem;
+	border: none;
+	background-color: var(--primary-color);
+	color: white;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: var(--transition);
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+button:hover {
+	transform: translateY(-2px);
+}
+
+button:active {
+	transform: translateY(0);
+}
+
+button.secondary {
+	background-color: white;
+	color: var(--primary-color);
+	border: 1px solid var(--primary-color);
+}
+
+button.secondary:hover {
+	background-color: #f0f4ff;
+}
+
+button.danger {
+	background-color: var(--error-color);
+}
+
+button.danger:hover {
+	background-color: #cc0000;
+}
+
+#contacts-view {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: white;
+	overflow-y: auto;
+	padding: 0;
+	max-width: 100% !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+}
+
+#logo {
+	text-align: left;
+	margin: 0;
+	padding: 20px;
+	color: white;
+	background-color: var(--primary-color);
+	font-size: 1.5rem;
+}
+
+#contacts-view.hidden {
+	display: none;
+}
+
+#contacts-view.active {
+	display: block;
+}
+
+#contactsHeader {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	background: var(--primary-color);
+}
+
+#contactList {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	list-style: none;
+}
+
+#contactList li {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	background: var(--primary-color);
+	cursor: pointer;
+	transition: var(--transition);
+	font-weight: 500;
+	padding: 25px;
+	color: white;
+	font-size: 20px;
+	width: 90%;
+	margin: 20px auto;
+	border-radius: 50px 50px 0 50px;
+}
+
+#contactList li:first-of-type {
+	margin-top: 30px;
+}
+
+#logOutBtn {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	padding: 25px;
+	background-color: white;
+	color: var(--primary-color);
+	border: none;
+	z-index: 100;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 15px;
+}
+
+#logOutBtn:hover {
+	background-color: var(--primary-dark);
+}
+
+#chat-view {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	background: white;
+	padding: 0;
+	overflow: hidden;
+}
+
+#chatHeader {
+	position: relative;
+	width: 100%;
+	background: var(--primary-color);
+	color: white;
+	padding: 15px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 10;
+	height: 70px;
+}
+
+#goBack,
+#clearBtn,
+#chatTitle {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+#goBack {
+	background: white;
+	color: var(--primary-color);
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	justify-content: center;
+	border: none;
+	font-size: 1rem;
+	margin: 0;
+}
+
+#chatTitle {
+	color: white;
+	font-size: 1.2rem;
+	margin: 0;
+	flex-grow: 1;
+	justify-content: center;
+	text-align: center;
+	line-height: 1;
+}
+
+#clearBtn {
+	background: white;
+	color: var(--primary-color);
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	justify-content: center;
+	border: none;
+	font-size: 1rem;
+	margin: 0;
+}
+
+#chatBox {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 10px;
+}
+
+.user-message {
+	background-color: #e3f2fd;
+	padding: 10px 15px;
+	border-radius: 18px 18px 0 18px;
+	align-self: flex-end;
+	max-width: 80%;
+	word-wrap: break-word;
+}
+
+.ai-message {
+	background-color: #f5f5f5;
+	padding: 10px 15px;
+	border-radius: 18px 18px 18px 0;
+	align-self: flex-start;
+	max-width: 80%;
+	word-wrap: break-word;
+}
+
+#notice {
+	color: var(--primary-color);
+	font-size: 0.9rem;
+	margin-top: 1rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+.success-message {
+	color: var(--success-color) !important;
+}
+
+@media (max-width: 600px) {
+	.view {
+		padding: 1.5rem;
+	}
+}
+
+@media (max-width: 768px) {
+	#chatBox {
+		overflow: scroll;
+		scroll-behavior: smooth;
+	}
+
+	#chatInputArea {
+		transform: translateY(calc(-1 * env(keyboard-inset-height, 0)));
+	}
+}
+
+#chatInputArea {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 1rem;
+	background: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+#userInput {
+	flex: 1;
+	max-width: calc(100% - 50px);
+	padding: 15px;
+	height: fit-content;
+	border: 1px solid #c7d1fa;
+	border-radius: var(--border-radius);
+	outline: none;
+	resize: none;
+	color: grey;
+	font-weight: bold;
+}
+
+#userInput::placeholder {
+	color: var(--primary-color);
+}
+
+#controlBtns {
+	display: flex;
+	align-items: center;
+}
+
+#sendBtn {
+	width: 50px;
+	height: 50px;
+	padding: 0;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--primary-color);
+	transform: scale(0.8);
+}
+
+.welcome-screen {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	text-align: center;
+	padding: 20px;
+}
+
+.welcome-screen i {
+	font-size: 5rem;
+	color: var(--primary-color);
+	margin-bottom: 1rem;
+}
+
+.welcome-screen h1 {
+	color: var(--primary-color);
+	font-size: 2rem;
+	margin: 0;
+}
+
+#chatBox {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 10px;
+	overflow-y: auto;
+	max-height: calc(100vh - 180px);
+	margin-bottom: 80px;
+	scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+	#chatBox {
+		max-height: calc(100vh - 150px);
+		margin-bottom: 70px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	#chatBox {
+		max-height: calc(100vh - 180px);
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+
+	#login-view,
+	#signUp-view {
+		padding: 50px;
+	}
+
+	#contactList {
+		margin-top: 65px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		position: absolute;
+		left: 0;
+		width: 380px;
+		height: 100vh;
+	}
+
+	#contactList li {
+		width: 100%;
+		padding: 20px;
+		background: var(--primary-color);
+		font-size: 20px;
+		color: white;
+		margin-top: 20px;
+		border-radius: 100px;
+		box-shadow: 0 0 2px 2px 2px rgba(0, 0, 0, 0.3);
+		margin-left: 10px;
+		padding-left: 30px;
+	}
+
+	#contactsHeader {
+		display: none;
+	}
+
+	#chat-view {
+		position: absolute;
+		left: 400px;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: auto;
+		max-width: none;
+		background: white;
+		box-shadow: none;
+	}
+
+	#chatHeader {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		padding: 15px 20px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.desktop-logout-btn {
+		background: white;
+		color: var(--primary-color);
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		border: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#chatTitle {
+		flex-grow: 1;
+		text-align: center;
+		margin: 0 15px;
+		font-size: 2.1rem;
+	}
+
+	#clearBtn {
+		margin-left: auto;
+	}
+
+	#goBack {
+		display: none;
+	}
+
+	#contactsHeader #logOutBtn {
+		display: none;
+	}
+
+	.user-message,
+	.ai-message {
+		font-size: 1.4rem;
+		font-family: 'Josefin Sans';
+	}
+	.user-message {
+		background-color: var(--primary-color);
+		color: white;
+	}
+	#userInput {
+		font-size: 20px;
+		padding: 25px;
+		background: white;
+		color: rgb(126, 126, 126);
+		border: 0.5px solid rgba(68, 99, 238, 0.5);
+		border-radius: var(--border-radius);
+		font-weight: normal;
+	}
+
+	#userInput::placeholder {
+		color: var(--primary-color);
+	}
+}

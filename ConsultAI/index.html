@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>ConsultAI</title>
+
+		<link
+			rel="stylesheet"
+			href="style.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+			integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="manifest" href="/manifest.json" />
+		<meta name="theme-color" content="#007bff" />
+
+	</head>
+	<body>
+		<section
+			id="login-view"
+			class="view active"
+		>
+			<h1>Login</h1>
+			<p id="notice">Access Free AI Consultations</p>
+			<input
+				type="email"
+				id="emailInput"
+				placeholder="Email"
+				autocomplete="off"
+			/>
+			<input
+				type="password"
+				id="passwordInput"
+				placeholder="Password"
+				autocomplete="off"
+			/>
+			<button id="loginBtn">Login</button>
+			<p>
+				Don't have an account?&nbsp;<a
+					href="#"
+					id="showSignUp"
+					>Sign Up</a
+				>
+			</p>
+		</section>
+
+		<section
+			id="signUp-view"
+			class="view hidden"
+		>
+			<h1>Sign Up</h1>
+			<p id="notice">Create A New Account</p>
+			<input
+				type="email"
+				id="signUpEmail"
+				placeholder="Enter your email"
+				autocomplete="off"
+			/>
+			<input
+				type="password"
+				id="signUpPassword"
+				placeholder="Enter your password"
+				autocomplete="off"
+			/>
+			<button id="signUpBtn">Sign Up</button>
+			<p>
+				Already have an account?
+				<a
+					href="#"
+					id="showLogin"
+					>Login</a
+				>
+			</p>
+			<p id="notice"></p>
+		</section>
+
+		<section
+			id="contacts-view"
+			class="view hidden"
+		>
+			<div id="contactsHeader">
+				<h1 id="logo">Consultants</h1>
+				<button id="logOutBtn">
+					<i class="fa-solid fa-right-from-bracket"></i>
+				</button>
+			</div>
+
+			<ul id="contactList"></ul>
+		</section>
+
+		<section
+			id="chat-view"
+			class="view hidden"
+		>
+			<div id="chatHeader">
+				<button id="goBack"><i class="fa-solid fa-arrow-left"></i></button>
+				<h2 id="chatTitle"></h2>
+				<button id="clearBtn"><i class="fa-solid fa-trash"></i></button>
+			</div>
+
+			<div id="chatBox"></div>
+
+			<div id="chatInputArea">
+				<textarea
+					id="userInput"
+					placeholder="Consult AI"
+					autocomplete="off"
+				></textarea>
+				<div id="controlBtns">
+					<button id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+				</div>
+			</div>
+		</section>
+
+		<script
+			type="module"
+			src="script.js"
+		></script>
+	</body>
+</html>
